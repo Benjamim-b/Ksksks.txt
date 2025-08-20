@@ -36,7 +36,7 @@ targetNameVal.Parent = player
 
 local messageVal = Instance.new("StringValue")
 messageVal.Name = "MessageToSend"
-messageVal.Value = ""
+messageVal.Value = "Bem vindo"
 messageVal.Parent = player
 
 local function sendChatCommand(cmd)
@@ -50,7 +50,7 @@ local function doCrash() while true do task.spawn(function() end) end end
 local function doVerifique() sendChatCommand(";verifique") end
 local function doChatTroll() sendChatCommand(";chatTroll "..targetNameVal.Value.." "..messageVal.Value) end
 
-createButton("matar o playet",20,doKill)
+createButton("matar o Player",20,doKill)
 createButton("Explusar o jogador do game",70,doKick)
 createButton("Bring Pra o player sair voando",120,doBring)
 createButton("Crash Player",170,doCrash)
@@ -71,7 +71,7 @@ targetBox:GetPropertyChangedSignal("Text"):Connect(function() targetNameVal.Valu
 local messageBox = Instance.new("TextBox")
 messageBox.Size = UDim2.new(0,260,0,40)
 messageBox.Position = UDim2.new(0,20,0,370)
-messageBox.PlaceholderText = "Mensagem do chatPlayet"
+messageBox.PlaceholderText = "Mensagem do chatPlayer"
 messageBox.TextSize = 18
 messageBox.BackgroundColor3 = Color3.fromRGB(40,40,40)
 messageBox.TextColor3 = Color3.fromRGB(255,255,255)
