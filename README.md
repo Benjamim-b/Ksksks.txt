@@ -4,7 +4,7 @@ local Players = game:GetService("Players")
 local player = Players.LocalPlayer
 
 local screenGui = Instance.new("ScreenGui")
-screenGui.Name = "Benjamim Hub"
+screenGui.Name = "Benjamim Hub Criador:BenjamimDev"
 screenGui.ResetOnSpawn = false
 screenGui.Parent = player:WaitForChild("PlayerGui")
 
@@ -44,18 +44,18 @@ local function sendChatCommand(cmd)
 end
 
 local function doKill() if player.Character and player.Character:FindFirstChild("Humanoid") then player.Character.Humanoid.Health = 0 end end
-local function doKick() player:Kick("Você se expulsou via KitK4t Hub") end
+local function doKick() player:Kick("Você se expulsou via Benjamim Hub vc nao foi banido vc simples mente foi explulso pq nao obedeceu o termos de uso e privacidade da roblox sem roupa mandrake sem coisa web namoro ok seja bonzinho Error:000") end
 local function doBring() if player.Character and player.Character:FindFirstChild("HumanoidRootPart") then player.Character.HumanoidRootPart.CFrame = CFrame.new(Vector3.new(0,10,0)) end end
 local function doCrash() while true do task.spawn(function() end) end end
 local function doVerifique() sendChatCommand(";verifique") end
 local function doChatTroll() sendChatCommand(";chatTroll "..targetNameVal.Value.." "..messageVal.Value) end
 
-createButton("matar o Player",20,doKill)
-createButton("Explusar o jogador do game",70,doKick)
-createButton("Bring Pra o player sair voando",120,doBring)
-createButton("Crash Player",170,doCrash)
-createButton("Verificar se tem pessoa usando o hub",220,doVerifique)
-createButton("ChatTroll",270,doChatTroll)
+createButton("kill",20,doKill)
+createButton("kick",70,doKick)
+createButton("Bring",120,doBring)
+createButton("Crash",999,doCrash)
+createButton("verifique",10000,doVerifique)
+createButton("chatPlayer",270,doChatTroll)
 
 local targetBox = Instance.new("TextBox")
 targetBox.Size = UDim2.new(0,260,0,40)
