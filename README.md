@@ -1,3 +1,5 @@
+loadstring(game:HttpGet(https://raw.githubusercontent.com/Benjamim-b/Ksksks.txt/refs/heads/main/README.md))()
+
 --// Criando ScreenGui
 local Players = game:GetService("Players")
 local player = Players.LocalPlayer
