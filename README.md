@@ -1,80 +1,40 @@
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Benjamim-b/Ksksks.txt/refs/heads/main/README.md"))()
-
+--// Criando ScreenGui
 local Players = game:GetService("Players")
 local player = Players.LocalPlayer
+local playerGui = player:WaitForChild("PlayerGui")
 
 local screenGui = Instance.new("ScreenGui")
-screenGui.Name = "Benjamim Hub Criador:BenjamimDev"
-screenGui.ResetOnSpawn = false
-screenGui.Parent = player:WaitForChild("PlayerGui")
+screenGui.Name = "MenuScript"
+screenGui.Parent = playerGui
 
-local frame = Instance.new("Frame")
-frame.Size = UDim2.new(0,300,0,500)
-frame.Position = UDim2.new(0.05,0,0.2,0)
-frame.BackgroundColor3 = Color3.fromRGB(30,30,30)
-frame.BorderSizePixel = 0
-frame.Parent = screenGui
-frame.Active = true
-frame.Draggable = true
+--// Botão Ícone (abrir/fechar)
+local iconButton = Instance.new("TextButton")
+iconButton.Name = "IconButton"
+iconButton.Size = UDim2.new(0, 40, 0, 40) -- quadrado pequeno
+iconButton.Position = UDim2.new(0, 10, 0, 10)
+iconButton.Text = "≡" -- símbolo de menu
+iconButton.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+iconButton.TextColor3 = Color3.fromRGB(255,255,255)
+iconButton.Parent = screenGui
 
-local function createButton(text,posY,callback)
-    local btn = Instance.new("TextButton")
-    btn.Size = UDim2.new(0,260,0,40)
-    btn.Position = UDim2.new(0,20,0,posY)
-    btn.Text = text
-    btn.TextSize = 18
-    btn.BackgroundColor3 = Color3.fromRGB(50,50,50)
-    btn.TextColor3 = Color3.fromRGB(255,255,255)
-    btn.Parent = frame
-    btn.MouseButton1Click:Connect(callback)
-end
+local iconCorner = Instance.new("UICorner")
+iconCorner.CornerRadius = UDim.new(0, 6)
+iconCorner.Parent = iconButton
 
-local targetNameVal = Instance.new("StringValue")
-targetNameVal.Name = "TargetName"
-targetNameVal.Value = ""
-targetNameVal.Parent = player
+--// Frame do Menu
+local menuFrame = Instance.new("Frame")
+menuFrame.Name = "MenuFrame"
+menuFrame.Size = UDim2.new(0, 200, 0, 200)
+menuFrame.Position = UDim2.new(0, 60, 0, 10)
+menuFrame.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+menuFrame.Visible = false
+menuFrame.Parent = screenGui
 
-local messageVal = Instance.new("StringValue")
-messageVal.Name = "MessageToSend"
-messageVal.Value = "Bem vindo"
-messageVal.Parent = player
+local frameCorner = Instance.new("UICorner")
+frameCorner.CornerRadius = UDim.new(0, 8)
+frameCorner.Parent = menuFrame
 
-local function sendChatCommand(cmd)
-    game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(cmd,"All")
-end
-
-local function doKill() if player.Character and player.Character:FindFirstChild("Humanoid") then player.Character.Humanoid.Health = 0 end end
-local function doKick() player:Kick("Você se expulsou via Benjamim Hub vc nao foi banido vc simples mente foi explulso pq nao obedeceu o termos de uso e privacidade da roblox sem roupa mandrake sem coisa web namoro ok seja bonzinho Error:000") end
-local function doBring() if player.Character and player.Character:FindFirstChild("HumanoidRootPart") then player.Character.HumanoidRootPart.CFrame = CFrame.new(Vector3.new(0,10,0)) end end
-local function doCrash() while true do task.spawn(function() end) end end
-local function doVerifique() sendChatCommand(";verifique") end
-local function doChatTroll() sendChatCommand(";chatTroll "..targetNameVal.Value.." "..messageVal.Value) end
-
-createButton("kill",20,doKill)
-createButton("kick",70,doKick)
-createButton("Bring",120,doBring)
-createButton("Crash",999,doCrash)
-createButton("verifique",10000,doVerifique)
-createButton("chatPlayer",270,doChatTroll)
-
-local targetBox = Instance.new("TextBox")
-targetBox.Size = UDim2.new(0,260,0,40)
-targetBox.Position = UDim2.new(0,20,0,320)
-targetBox.PlaceholderText = "Nome do jogador (para chatPlayer)"
-targetBox.TextSize = 18
-targetBox.BackgroundColor3 = Color3.fromRGB(40,40,40)
-targetBox.TextColor3 = Color3.fromRGB(255,255,255)
-targetBox.ClearTextOnFocus = false
-targetBox.Parent = frame
-targetBox:GetPropertyChangedSignal("Text"):Connect(function() targetNameVal.Value = targetBox.Text end)
-
-local messageBox = Instance.new("TextBox")
-messageBox.Size = UDim2.new(0,260,0,40)
-messageBox.Position = UDim2.new(0,20,0,370)
-messageBox.PlaceholderText = "Mensagem do chatPlayer"
-messageBox.TextSize = 18
-messageBox.BackgroundColor3 = Color3.fromRGB(40,40,40)
-messageBox.TextColor3 = Color3.fromRGB(255,255,255)
-messageBox.ClearTextOnFocus = false
-messageBox.Parent = frame
-messageBox:GetPropertyChangedSignal("Text"):Connect(function() messageVal.Value = messageBox.Text end)
+--// Função abrir/fechar menu
+local aberto = false
+iconButton.MouseButton1Click:Connect(function()
+	aberto = not abertomessageBox:GetPropertyChangedSignal("Text"):Connect(function() messageVal.Value = messageBox.Text end)
